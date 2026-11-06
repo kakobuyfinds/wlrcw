@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>SuperBuy spreadsheet – dansk guide til størrelser og QC</title>
+<meta name="description" content="Forstå en SuperBuy spreadsheet: find tøjkategorier, sammenlign mål, gennemgå QC-fotos og planlæg dit budget før køb. Uafhængig guide på dansk.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#24382d">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="da_DK">
+<meta property="og:title" content="SuperBuy spreadsheet – vælg med overblik">
+<meta property="og:description" content="En dansk læseguide til produktlinks, størrelser, QC-fotos og fragt. Start med den kategori, du faktisk mangler.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://images.unsplash.com">
+<style>
+:root{--paper:#f5f2e9;--ink:#24382d;--muted:#536056;--line:#d5d9cb;--lime:#d5ec83;--white:#fffef9;--rust:#93432c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit;text-underline-offset:4px}
+a:hover{color:var(--rust)}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--rust);outline-offset:5px}
+img{display:block;width:100%;height:auto}
+h1,h2,h3,p{margin-top:0}
+h1,h2,h3{line-height:1.13;letter-spacing:-.035em}
+h1{font-size:clamp(2.6rem,6vw,5.5rem);max-width:850px;margin-bottom:24px}
+h2{font-size:clamp(1.9rem,3.5vw,3rem)}
+h3{font-size:1.25rem}
+p{max-width:72ch}
+.wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+.skip{position:absolute;top:-80px;padding:12px;background:white;z-index:9}
+.skip:focus{top:10px}
+.masthead{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}
+.brand{font-size:1.1rem;font-weight:850;text-decoration:none;letter-spacing:.1em}
+.micro{font-size:.75rem;text-transform:uppercase;letter-spacing:.13em;font-weight:750}
+.muted{color:var(--muted)}
+.categories{padding:24px 0 30px}
+.category-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.category-grid a{display:flex;justify-content:space-between;gap:8px;align-items:center;min-height:60px;padding:12px;background:var(--white);border:1px solid var(--line);text-decoration:none;font-size:.88rem;font-weight:650;border-radius:4px}
+.category-grid span{color:var(--muted);font-size:.7rem}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;padding:38px 0 64px;align-items:center}
+.hero .intro{font-size:1.1rem;max-width:56ch}
+.hero figure{margin:0;transform:rotate(2deg)}
+.hero img{aspect-ratio:1/1;object-fit:cover;border-radius:160px 160px 8px 8px}
+.hero figcaption{font-size:.75rem;padding-top:12px;color:var(--muted)}
+.button{display:inline-block;background:var(--ink);color:white;padding:14px 22px;border-radius:4px;text-decoration:none;font-weight:700}
+.button:hover{color:var(--ink);background:var(--lime)}
+.answer{display:grid;grid-template-columns:180px 1fr;gap:30px;padding:32px;background:var(--lime);border-radius:6px}
+.answer p{margin:0}
+.section{padding:64px 0;border-bottom:1px solid var(--line)}
+.section-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:step}
+.step{border-top:2px solid var(--ink);padding-top:20px}
+.step:before{counter-increment:step;content:"0" counter(step);font-size:.8rem;font-weight:800;display:block;margin-bottom:18px;color:var(--rust)}
+.step p{font-size:.94rem}
+.editorial{display:grid;grid-template-columns:.85fr 1.15fr;gap:50px}
+.editorial aside{border-left:1px solid var(--line);padding-left:25px}
+.articles{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.article{background:var(--white);border:1px solid var(--line);padding:28px;border-radius:6px}
+.article h3{font-size:1.6rem}
+.article ul{padding-left:20px}
+.article li{margin-bottom:9px}
+.article.wide{grid-column:1/-1;background:var(--ink);color:var(--paper)}
+.article.wide p{color:#d6dfd3}
+.photos{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:28px}
+.photos figure{margin:0}
+.photos img{aspect-ratio:16/10;object-fit:cover;border-radius:5px}
+.photos figcaption{font-size:.8rem;margin-top:9px;color:var(--muted)}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.94rem}
+th,td{text-align:left;vertical-align:top;padding:15px 12px;border-bottom:1px solid var(--line)}
+th{background:#e7eadf}
+td:first-child{font-weight:700;min-width:155px}
+details{border-bottom:1px solid var(--line);padding:19px 0}
+summary{font-weight:750;cursor:pointer;padding-right:15px}
+details p{padding-top:16px;margin-bottom:0;color:var(--muted)}
+.footer{padding:36px 0 42px;display:flex;justify-content:space-between;gap:30px;font-size:.85rem}
+.footer p{max-width:75ch}
+.note{font-size:.82rem;color:var(--muted)}
+@media(max-width:850px){
+.category-grid{grid-template-columns:repeat(3,1fr)}
+.hero{grid-template-columns:1fr 1fr;gap:24px}
+.steps{grid-template-columns:1fr 1fr}
+.editorial{grid-template-columns:1fr}
+.editorial aside{padding-left:0;border:0}
+}
+@media(max-width:580px){
+.wrap{width:calc(100% - 28px)}
+.masthead{align-items:flex-start}
+.masthead .micro{max-width:125px;text-align:right}
+.category-grid{grid-template-columns:1fr 1fr}
+.hero{grid-template-columns:1fr;padding-top:18px}
+.hero figure{transform:none;max-width:390px}
+.hero img{aspect-ratio:4/3;border-radius:90px 90px 6px 6px}
+h1{font-size:3.1rem}
+.answer{grid-template-columns:1fr;gap:12px;padding:24px}
+.articles,.photos{grid-template-columns:1fr}
+.section{padding:44px 0}
+.section-head,.footer{display:block}
+.article{padding:23px}
+.steps{gap:18px}
+.step h3{font-size:1.1rem}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"WebPage",
+      "name":"SuperBuy spreadsheet – dansk guide til størrelser og QC",
+      "inLanguage":"da",
+      "description":"Uafhængig dansk guide til produktlinks, størrelser, QC-fotos og planlægning før køb.",
+      "about":{"@type":"Thing","name":"SuperBuy spreadsheet"}
+    },
+    {
+      "@type":"Article",
+      "headline":"Mål først: sådan sammenligner du tøj og sko",
+      "inLanguage":"da",
+      "description":"Brug centimetermål, sammenlign pasform med noget, du ejer, og undersøg den konkrete variant.",
+      "articleBody":"En størrelse som M eller 42 er et udgangspunkt. Mål en T-shirt, der passer dig, og sammenlign brystbredde, længde og skuldermål med varens måleskema. Kontrollér, om skemaet viser tøjets mål eller kroppens mål. Til sko skal du sammenholde fodlængde med modellens egen størrelsesguide."
+    },
+    {
+      "@type":"FAQPage",
+      "inLanguage":"da",
+      "mainEntity":[
+        {
+          "@type":"Question",
+          "name":"Hvad er en SuperBuy spreadsheet?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Det er en oversigt over produktlinks, som kan hjælpe dig med at sammenligne varer. Navnet er ikke i sig selv dokumentation for kvalitet, lagerstatus eller en officiel forbindelse."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Kan jeg købe eller downloade et regneark her?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Nej. Denne side er en dansk læseguide uden regnearksdownload eller checkout. Kategorierne fører til Cafans; øvrige links fører til Cafans' forside."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Hvordan vælger jeg størrelse?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Sammenlign varens mål i centimeter med et stykke tøj, der passer dig. Til sko skal du bruge fodlængde og modellens egen størrelsesguide. Bogstavstørrelser alene er ikke nok."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Hvad viser QC-fotos?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"QC-fotos kan vise synlige detaljer som farve, syninger, mærkning og mål. De kan ikke alene bevise ægthed, holdbarhed eller hvordan varen føles ved brug."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Hvordan vurderer jeg det samlede budget?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Skriv varepris, eventuel lokal fragt, gebyrer, international fragt og relevante importomkostninger hver for sig. Kontrollér aktuelle beløb før betaling; denne side angiver ingen priser."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Er siden tilknyttet Superbuy eller de viste mærker?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Nej. Guiden er uafhængig. Mærkenavne og illustrative billeder angiver ikke et samarbejde eller dokumentation for varer hos Cafans."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!--
+Redaktionelt researchnotat, ikke en erklæring om Google-placering:
+Søgning: "SuperBuy spreadsheet". Søgeværktøjet kunne ikke bekræfte Googles
+første resultatside eller ti forskellige websites. Følgende ti fundne sider
+gav emner som kategorier, mål, QC og fragt; tekst og tal er ikke kopieret:
+1. https://superbuyspreadsheet.org/
+2. https://rep.tools/guides/superbuy-spreadsheet
+3. https://www.reddit.com/r/Superbuy/comments/1re5kxj/can_someone_send_me_a_superbuy_spreadsheet_or/
+4. https://www.reddit.com/r/CnRepsSpreadsheet/comments/1v9yku3/superbuy_spreadsheet_sharing_mine_here/
+5. https://repsheet.net/spreadsheet/superbuy
+6. https://www.reddit.com/r/Superbuy/comments/1fe7yu7
+7. https://www.reddit.com/r/RepsAid/comments/1rn6qaq/superbuy_spreadsheet_2026_15k_real_links_eu_hauls/
+8. https://taofind.com/spreadsheets
+9. https://su-perbuy.com/
+10. https://sheetsuperbuy.com/
+Primært søgeemne: SuperBuy spreadsheet.
+Sekundære emner: Superbuy guide, Superbuy QC, Superbuy størrelsesguide, Superbuy fragt.
+Der er ikke indsat canonical eller og:url, fordi sidens egen publiceringsadresse ikke er oplyst.
+-->
+<link rel="canonical" href="https://kakobuyfinds.github.io/wlrcw/">
+</head>
+<body>
+<a class="skip" href="https://www.cafans.com">Gå til Cafans</a>
+
+<header class="wrap masthead">
+<a class="brand" href="https://www.cafans.com" aria-label="Cafans forside">FORM &amp; FUND</a>
+<span class="micro">Dansk læseguide<br>Stil med omtanke</span>
+</header>
+
+<main class="wrap">
+<nav class="categories" aria-label="Produktkategorier hos Cafans">
+<p class="micro">Start med en kategori · links til Cafans</p>
+<div class="category-grid">
+<a href="https://cafans.com/category-911-Shoes.html">Sko <span>01 ↗</span></a>
+<a href="https://cafans.com/category-912-Hoodies%2FSweaters.html">Hættetrøjer / strik <span>02 ↗</span></a>
+<a href="https://cafans.com/category-913-T-Shirts.html">T-shirts <span>03 ↗</span></a>
+<a href="https://cafans.com/category-914-Jackets.html">Jakker <span>04 ↗</span></a>
+<a href="https://cafans.com/category-915-Pants%2FShorts.html">Bukser / shorts <span>05 ↗</span></a>
+<a href="https://cafans.com/category-916-Headwear.html">Hovedbeklædning <span>06 ↗</span></a>
+<a href="https://cafans.com/category-917-Sets.html">Sæt <span>07 ↗</span></a>
+<a href="https://cafans.com/category-918-underwear%2Funderpants.html">Undertøj <span>08 ↗</span></a>
+<a href="https://cafans.com/category-919-Jersey.html">Trøjer / jerseys <span>09 ↗</span></a>
+<a href="https://cafans.com/category-920-Accessories.html">Tilbehør <span>10 ↗</span></a>
+</div>
+</nav>
+
+<section class="hero" aria-labelledby="hero-title">
+<div>
+<p class="micro">Pasform / detaljer / overblik</p>
+<h1 id="hero-title">SuperBuy spreadsheet.<br>Færre gæt.<br>Bedre overblik.</h1>
+<p class="intro">Et produktlink er kun begyndelsen. Brug denne danske guide til at læse mål, vurdere billeder og stille de rigtige spørgsmål, før du vælger sko, tøj eller tilbehør.</p>
+<a class="button" href="https://www.cafans.com">Udforsk Cafans ↗</a>
+<p class="note" style="margin-top:16px">Uafhængig information · ingen checkout eller regnearksdownload på siden.</p>
+</div>
+<figure>
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=900&amp;q=80" width="900" height="900" fetchpriority="high" loading="eager" alt="Rød Nike-sneaker med hvid sål mod en rød baggrund">
+<figcaption>Stilinspiration: Nike-sneaker. Fotoet dokumenterer ikke en vare hos Cafans.</figcaption>
+</figure>
+</section>
+
+<section class="answer" aria-label="Kort forklaring">
+<strong>Det korte svar</strong>
+<p>En <strong>SuperBuy spreadsheet</strong> er en oversigt over produktlinks. Brug den som et udgangspunkt for sammenligning: kontrollér den konkrete vare, måleskemaet og vilkårene. Et navn i et regneark siger ikke noget sikkert om kvalitet eller ægthed.</p>
+</section>
+
+<section class="section" aria-labelledby="guide-title">
+<div class="section-head">
+<h2 id="guide-title">En Superbuy guide i fire trin</h2>
+<p class="micro">Fra idé til tjekliste</p>
+</div>
+<div class="steps">
+<div class="step">
+<h3>Vælg et behov</h3>
+<p>Begynd med <strong>sneakers til hverdagsbrug</strong>, <strong>en hættetrøje til lag på lag</strong> eller <strong>en let jakke til overgangsvejr</strong>. Et tydeligt formål gør udvalget lettere at afgrænse.</p>
+</div>
+<div class="step">
+<h3>Sammenlign mål</h3>
+<p>Se efter <strong>T-shirts med oplyste mål</strong>, <strong>bukser med indvendig benlængde</strong> og <strong>shorts med taljemål</strong>. Sammenlign med tøj, du allerede bruger.</p>
+</div>
+<div class="step">
+<h3>Undersøg detaljer</h3>
+<p>Ved <strong>gennemgang af QC-fotos</strong> skal billederne passe til den valgte variant. Se på syninger og mærkning, og bed om <strong>nærbilleder af materialet</strong>, hvis noget er uklart.</p>
+</div>
+<div class="step">
+<h3>Saml budgettet</h3>
+<p>Lav en <strong>beregning af samlet købspris</strong> med separate poster. Kontrollér <strong>fragt efter vægt og mål</strong> og <strong>returvilkår før bestilling</strong>.</p>
+</div>
+</div>
+</section>
+
+<section class="section editorial" aria-labelledby="themes-title">
+<div>
+<p class="micro">Tre temaer til din research</p>
+<h2 id="themes-title">Byg en garderobe, der hænger sammen.</h2>
+<p>Sortér efter brug og pasform før mærkenavn. En enkel liste med kategori, mål, materiale og ubesvarede spørgsmål kan være mere nyttig end en lang samling af links.</p>
+</div>
+<aside>
+<h3>01 / Sko og proportioner</h3>
+<p>Ved <strong>sammenligning af sneakerstørrelser</strong> skal du bruge modellens mål. Overvej også skobredde, sålens form og plads til de strømper, du vil bruge.</p>
+<h3>02 / Lag og bevægelse</h3>
+<p>Til <strong>oversized T-shirts med god pasform</strong> er skulderbredde og længde centrale. Ved <strong>strik til kølige dage</strong> og <strong>jakker med plads til en trøje</strong> bør du sammenligne flere mål.</p>
+<h3>03 / Små dele, tydelige detaljer</h3>
+<p>Ved <strong>kasketter med justerbar lukning</strong>, <strong>tilbehør til en enkel garderobe</strong> og <strong>smykker med oplyst materiale</strong> er størrelse, lukning og materiale gode steder at starte.</p>
+</aside>
+</section>
+
+<section class="section" aria-labelledby="articles-title">
+<p class="micro">Læs før du vælger</p>
+<h2 id="articles-title">Tre korte artikler om bedre valg</h2>
+<div class="articles">
+<article class="article">
+<p class="micro">Superbuy størrelsesguide</p>
+<h3>Mål først: sådan sammenligner du tøj og sko</h3>
+<p>En størrelse som M eller 42 er et udgangspunkt. Mål en T-shirt, der passer dig, og sammenlign brystbredde, længde og skuldermål med varens måleskema. Kontrollér, om skemaet viser tøjets mål eller kroppens mål. Til sko skal du sammenholde fodlængde med modellens egen størrelsesguide.</p>
+<ul>
+<li><strong>Måling af brystbredde:</strong> mål tøjet fladt fra armhule til armhule.</li>
+<li><strong>Valg af bukser efter mål:</strong> sammenlign talje, lårvidde og benlængde.</li>
+<li><strong>Matchende sæt i to størrelser:</strong> undersøg overdel og underdel hver for sig.</li>
+</ul>
+<p>Mangler der mål, så få dem afklaret før betaling. Et produktfoto viser ikke, hvordan varen sidder på dig.</p>
+</article>
+
+<article class="article">
+<p class="micro">Superbuy QC</p>
+<h3>Hvad kan et foto egentlig fortælle?</h3>
+<p>QC betyder kvalitetskontrol. Fotos kan hjælpe med at opdage synlige afvigelser, men et billede er kun én del af vurderingen.</p>
+<ul>
+<li><strong>Kontrol af syninger på tøj:</strong> se efter løse tråde og ujævne samlinger.</li>
+<li><strong>Kontrol af farve på produktfotos:</strong> tag højde for lys og skærmens gengivelse.</li>
+<li><strong>Kontrol af skoens sål:</strong> sammenlign begge sko og bed om tydelige vinkler.</li>
+<li><strong>Kontrol af tilbehørets lukning:</strong> se efter billeder af spænder og lynlåse.</li>
+</ul>
+<p>Fotos alene dokumenterer hverken ægthed, lang levetid eller komfort. Oplysninger om sælger og materiale skal vurderes særskilt.</p>
+</article>
+
+<article class="article wide">
+<p class="micro">Superbuy fragt</p>
+<h3>Et brugbart budget har flere linjer</h3>
+<p>Notér varepris, eventuel lokal fragt, betalingsgebyrer, international fragt og relevante importomkostninger hver for sig. Brug aktuelle oplysninger fra den tjeneste, hvor du faktisk bestiller.</p>
+<p>Ved <strong>planlægning af en samlet pakke</strong> bør du undersøge emballage og pakkens mål. En <strong>sammenligning af fragtmuligheder</strong> er først nyttig, når vægt, destination og inkluderede ydelser er sammenlignelige. Kontrollér også <strong>vilkår for returnering fra lager</strong>, før du accepterer en vare.</p>
+<a href="https://www.cafans.com">Fortsæt din produktresearch hos Cafans ↗</a>
+</article>
+</div>
+
+<div class="photos" aria-label="Sneakerinspiration">
+<figure>
+<img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&amp;fit=crop&amp;w=760&amp;q=75" width="760" height="475" loading="lazy" decoding="async" alt="Et par lyse Nike-sneakers med mørke logoer på en varmfarvet baggrund">
+<figcaption>Se på silhuet og proportioner, og kontrollér derefter modellens egne mål.</figcaption>
+</figure>
+<figure>
+<img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&amp;fit=crop&amp;w=760&amp;q=75" width="760" height="475" loading="lazy" decoding="async" alt="Lys Nike-sneaker med synlige paneler og snørebånd">
+<figcaption>Illustrative mærkefotos er inspiration, ikke bevis for lagerstatus eller produkters oprindelse.</figcaption>
+</figure>
+</div>
+</section>
+
+<section class="section" aria-labelledby="check-title">
+<h2 id="check-title">Hvad skal du undersøge i hver kategori?</h2>
+<p>Brug disse spørgsmål, når du gennemgår produktlinks. De konkrete oplysninger skal komme fra den enkelte varebeskrivelse.</p>
+<div class="table-wrap">
+<table>
+<caption class="note" style="text-align:left;padding-bottom:12px">En praktisk tjekliste til sko, tøj og tilbehør</caption>
+<thead>
+<tr>
+<th scope="col">Kategori</th>
+<th scope="col">Start med</th>
+<th scope="col">Undersøg også</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Sko</td><td>Fodlængde og modelguide</td><td>Bredde, sål og billeder af begge sko</td></tr>
+<tr><td>Hættetrøjer / strik</td><td>Brystbredde og længde</td><td>Materiale, ærmer og vaskeanvisning</td></tr>
+<tr><td>T-shirts</td><td>Skuldermål og pasform</td><td>Stoffets sammensætning og halskant</td></tr>
+<tr><td>Jakker</td><td>Plads til lag under jakken</td><td>Lukning, foring og konkrete materialeoplysninger</td></tr>
+<tr><td>Bukser / shorts</td><td>Talje og benlængde</td><td>Lårvidde og eventuel elasticitet</td></tr>
+<tr><td>Hovedbeklædning</td><td>Omkreds og justering</td><td>Skyggens form og lukning</td></tr>
+<tr><td>Sæt</td><td>Mål for begge dele</td><td>Om størrelser kan vælges separat</td></tr>
+<tr><td>Undertøj</td><td>Taljemål og materiale</td><td>Vaskeanvisning og returvilkår</td></tr>
+<tr><td>Trøjer / jerseys</td><td>Brystmål og længde</td><td>Snit, tryk og materialets struktur</td></tr>
+<tr><td>Tilbehør</td><td>Mål, materiale og lukning</td><td>Nærbilleder af kanter, spænder og samlinger</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="section" aria-labelledby="faq-title">
+<p class="micro">Spørgsmål med direkte svar</p>
+<h2 id="faq-title">Før du åbner endnu et produktlink</h2>
+
+<details open>
+<summary>Hvad er en SuperBuy spreadsheet?</summary>
+<p>Det er en oversigt over produktlinks, som kan hjælpe dig med at sammenligne varer. Navnet er ikke i sig selv dokumentation for kvalitet, lagerstatus eller en officiel forbindelse.</p>
+</details>
+
+<details>
+<summary>Kan jeg købe eller downloade et regneark her?</summary>
+<p>Nej. Denne side er en dansk læseguide uden regnearksdownload eller checkout. Kategorierne fører til Cafans; øvrige links fører til Cafans' forside.</p>
+</details>
+
+<details>
+<summary>Hvordan vælger jeg størrelse?</summary>
+<p>Sammenlign varens mål i centimeter med et stykke tøj, der passer dig. Til sko skal du bruge fodlængde og modellens egen størrelsesguide. Bogstavstørrelser alene er ikke nok.</p>
+</details>
+
+<details>
+<summary>Hvad viser QC-fotos?</summary>
+<p>QC-fotos kan vise synlige detaljer som farve, syninger, mærkning og mål. De kan ikke alene bevise ægthed, holdbarhed eller hvordan varen føles ved brug.</p>
+</details>
+
+<details>
+<summary>Hvordan vurderer jeg det samlede budget?</summary>
+<p>Skriv varepris, eventuel lokal fragt, gebyrer, international fragt og relevante importomkostninger hver for sig. Kontrollér aktuelle beløb før betaling; denne side angiver ingen priser.</p>
+</details>
+
+<details>
+<summary>Er siden tilknyttet Superbuy eller de viste mærker?</summary>
+<p>Nej. Guiden er uafhængig. Mærkenavne og illustrative billeder angiver ikke et samarbejde eller dokumentation for varer hos Cafans.</p>
+</details>
+</section>
+</main>
+
+<footer class="wrap footer">
+<div>
+<strong>FORM &amp; FUND</strong>
+<p class="muted">Dansk guide til mere bevidst produktresearch. Ingen officielle forbindelser til Superbuy, Nike, Louis Vuitton, Gucci, Hermès eller Dior. Udvalget og vilkårene hos destinationen skal kontrolleres særskilt.</p>
+</div>
+<a href="https://www.cafans.com">Besøg Cafans ↗</a>
+</footer>
+</body>
+</html>
